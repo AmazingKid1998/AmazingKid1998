@@ -17,20 +17,15 @@
 - **Other:** System design, auth (JWT), OAuth, security basics, performance profiling
 
 ## Highlights (Pinned)
-- 🧭 **Indoor Navigation (React Native)** — dynamic map, pathfinding, offline cache. [Repo](#) · [Demo](#)
+- 🧭 **BUET CES Website (PERN)** — Website for energy division and submitting conference papaers for the biggest engineering university of Bangladesh . [Repo](https://github.com/AmazingKid1998/buet-ces-website) · [Live](http://iesd.buet.ac.bd/)
 - 💇 **Salon Booking (PERN)** — real‑world booking flow, payments, staff rota, webhooks. [Repo](#) · [Live](#)
-- ⚙️ **Process Scheduler Simulator** — FCFS, SJF, RR, Gantt timeline + metrics. [Repo](#) · [Live](#)
-- 🧮 **Financial Anomaly Detector** — ETL + unsupervised flags for transactions. [Repo](#) · [Notebook](#)
+- ⚙️ **Process Scheduler Simulator** — FCFS, SJF, RR, Gantt timeline + metrics. [Repo](https://github.com/AmazingKid1998/process-scheduler) ·
 
-> Tip: replace `#` links above with your actual repo/live links, then pin these repos on your profile.
 
 ## Recent work
 - Clean, testable code with CI; typed React components; API contracts; SQL migrations.
 - Deployed hobby projects to Render/Fly/Netlify/Vercel (whichever used in each repo).
 
 ## Contact
-- 📫 sheium1998@gmail.com · [LinkedIn](#) · [Portfolio](#)
+- 📫 sheium1998@gmail.com · [LinkedIn](https://www.linkedin.com/in/jamilus-sheium-529a85176/) · [Portfolio](#)
 
----
-
-_This profile README is intentionally concise and employer‑focused. Keep the “Pinned” projects updated and add brief, outcome‑driven descriptions in each repo._
