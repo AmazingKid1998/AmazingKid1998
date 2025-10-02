@@ -17,14 +17,14 @@
 - **Other:** System design, auth (JWT), OAuth, security basics, performance profiling
 
 ## Highlights (Pinned)
-- 🧭 **BUET CES Website (PERN)** — Website for energy division and submitting conference papaers for the biggest engineering university of Bangladesh . [Repo](https://github.com/AmazingKid1998/buet-ces-website) · [Live](http://iesd.buet.ac.bd/)
+- 🧭 **BUET CES Website (PERN)** — Website for the division of energy and submitting conference papers for the biggest engineering university of Bangladesh . [Repo](https://github.com/AmazingKid1998/buet-ces-website) · [Live](http://iesd.buet.ac.bd/)
 - 💇 **Salon Booking (PERN)** — real‑world booking flow, payments, staff rota, webhooks. [Repo](#) · [Live](#)
 - ⚙️ **Process Scheduler Simulator** — FCFS, SJF, RR, Gantt timeline + metrics. [Repo](https://github.com/AmazingKid1998/process-scheduler) ·
 
 
 ## Recent work
 - Clean, testable code with CI; typed React components; API contracts; SQL migrations.
-- Deployed hobby projects to Render/Fly/Netlify/Vercel (whichever used in each repo).
+- Integrating payment gateways to the PERN projects
 
 ## Contact
 - 📫 sheium1998@gmail.com · [LinkedIn](https://www.linkedin.com/in/jamilus-sheium-529a85176/) · [Portfolio](#)
