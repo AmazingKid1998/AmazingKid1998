@@ -9,10 +9,10 @@
 - 📄 [CV (PDF)](CV.pdf) — keep updated in this repo
 
 ## Skills at a glance
-- **Frontend:** React, React Native, TypeScript, HTML5, CSS3
+- **Frontend:** React, React Native, HTML5, CSS3
 - **Backend:** Node.js, Express, REST APIs, WebSockets
-- **Databases:** PostgreSQL, SQL, Prisma/Knex, Redis (basics)
-- **Testing & DevOps:** Jest, Playwright, GitHub Actions, Docker (basics), CI/CD
+- **Databases:** PostgreSQL, SQL, Prisma, Redis (basics)
+- **Testing & DevOps:** Jest, GitHub Actions, Docker (basics), CI/CD
 - **Data/ML (foundations):** Python, NumPy, Pandas, scikit‑learn (basics)
 - **Other:** System design, auth (JWT), OAuth, security basics, performance profiling
 
