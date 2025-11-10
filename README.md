@@ -6,7 +6,7 @@
 - 🔭 Currently building: **Indoor Navigation (React Native)**, **Salon Booking (PERN)**, **Process Scheduler Simulator**
 - 🧠 Interests: Full‑stack, system design, data engineering, ML for real products
 - 📍 Portsmouth, UK | Open to relocation in the UK
-- 📄 [CV (PDF)](new_cv.pdf) — keep updated in this repo
+- 📄 [CV (PDF)](new_cv.pdf) 
 
 ## Skills at a glance
 - **Frontend:** React, React Native, HTML5, CSS3
