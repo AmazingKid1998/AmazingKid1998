@@ -59,20 +59,20 @@ graph LR
 *Click any research pillar below to expand the underlying mathematical formulation, neural architecture diagram, and empirical evaluation methodology.*
 
 <details open>
-<summary><b>Pillar I: Custom Cyber Foundation Model, System-1 Decision Head & RLCD (Voxlith / UKRI Locknest)</b></summary>
+<summary><b>Pillar I: High-Throughput Adversarial Threat Engine (Voxlith / UKRI Locknest)</b></summary>
 <br/>
 
 Adversarial web and network threat detection violates standard IID assumptions and operates under strict sub-millisecond latency constraints where slow autoregressive reasoning fails.
 
 ```mermaid
 flowchart LR
-    In["Multi-Modal Input<br/>(DOM + URL + Headers + Runtime)"] --> FM["Custom Pre-Trained<br/>Cyber Foundation Backbone"]
-    FM --> TCN["Dilated Causal TCN<br/>(Exponential Receptive Field)"]
-    FM --> JE["Joint-Embedding<br/>Latent Projection"]
-    TCN --> Sys1["Fast System-1<br/>Decision Head"]
-    JE --> Sys1
-    Sys1 --> RLCD["RLCD Policy Boundary<br/>(Asymmetric Cost Optimization)"]
-    RLCD --> Out["Zero-Day Containment<br/>(<1ms Inference | 96% OOD Acc)"]
+    In["Multi-Modal Telemetry<br/>(DOM + URL + Headers + Runtime)"] --> Backbone["Specialised Feature<br/>Extraction Backbone"]
+    Backbone --> Seq["Sequential Temporal<br/>Processing Engine"]
+    Backbone --> Latent["Joint-Embedding<br/>Latent Space"]
+    Seq --> Decision["Real-Time Decision<br/>& Scoring Module"]
+    Latent --> Decision
+    Decision --> Policy["Adaptive Policy<br/>Optimization"]
+    Policy --> Out["Zero-Day Threat Containment<br/>(<1ms Latency | 96% OOD Acc)"]
 ```
 
 * **Multi-Modal Pre-Training:** Pre-trained from scratch over a metric-balanced, heterogeneous corpus exceeding **2,000,000 samples** (structural DOM trees, URLs, HTTP headers, and live runtime execution traces) to learn invariant threat manifolds.
