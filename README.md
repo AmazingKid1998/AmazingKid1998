@@ -36,9 +36,10 @@ flowchart LR
         Q4["Detect intrusions without sharing<br/>or decrypting traffic?"] --> M4["XTRUST-6G<br/>non-IID federated learning<br/>+ encrypted-flow timing models"] --> R4["18+ partner consortium<br/>€8M Horizon Europe"]
     end
 
-    M1 -. alignment drift under change .- M2
-    R3 -. honest OOD evaluation .- R4
-    M1 -. safe quantised models .-> P["PromptGuard<br/>on-device DLP<br/>with quantised SLMs"]
+    subgraph PR["Privacy: data leakage at the edge"]
+        direction TB
+        Q5["Stop confidential data leaking<br/>into LLM prompts?"] --> M5["PromptGuard<br/>on-device semantic DLP"] --> R5["Catches implicit leaks that<br/>regex / NER baselines miss"]
+    end
 ```
 
 ---
@@ -78,21 +79,17 @@ Existing mixed-precision allocators choose which modules stay in FP16 using perp
 
 **Refusal direction**, from harmful prompts $`H`$ and benign prompts $`B`$ at a causally selected layer $`\ell`$:
 
-$$
-\hat{r} = \frac{r}{\lVert r \rVert}, \qquad r = \frac{1}{|H|}\sum_{x \in H} h_\ell(x) - \frac{1}{|B|}\sum_{x \in B} h_\ell(x)
-$$
+$`\displaystyle \hat{r} = \frac{r}{\lVert r \rVert}, \qquad r = \frac{1}{|H|}\sum_{x \in H} h_\ell(x) - \frac{1}{|B|}\sum_{x \in B} h_\ell(x)`$
 
 **Module saliency**, a first-order Taylor proxy for how much quantising module $`W`$ shifts the refusal projection $`\mathcal{L}(x)`$ (averaged over layers $`\ell, \ldots, L-1`$):
 
-$$
-s(W) = \mathbb{E}_{x \in H}\left[ \frac{1}{|W|} \sum_{i,j} \left| \frac{\partial \mathcal{L}(x)}{\partial W_{ij}} \right| \cdot \left| W_{ij} \right| \right], \qquad \mathcal{L}(x) = \frac{1}{L-\ell}\sum_{k=\ell}^{L-1} \left\langle h_k(x), \hat{r} \right\rangle
-$$
+$`\displaystyle s(W) = \mathbb{E}_{x \in H}\left[ \frac{1}{|W|} \sum_{i,j} \left| \frac{\partial \mathcal{L}(x)}{\partial W_{ij}} \right| \cdot \left| W_{ij} \right| \right]`$
+
+$`\displaystyle \mathcal{L}(x) = \frac{1}{L-\ell}\sum_{k=\ell}^{L-1} \left\langle h_k(x), \hat{r} \right\rangle`$
 
 **Allocation**, an exact 0/1 knapsack over parameter counts $`p(W)`$ under an FP16 budget $`\mathcal{B}`$; the protected set is excluded from GPTQ W4A16:
 
-$$
-P^{\star} = \arg\max_{P : \sum_{W \in P} p(W) \le \mathcal{B}}  \sum_{W \in P} s(W)
-$$
+$`\displaystyle P^{\star} = \arg\max_{P : \sum_{W \in P} p(W) \le \mathcal{B}}  \sum_{W \in P} s(W)`$
 
 * **Distinct signal:** the top-5% refusal-saliency modules barely overlap with perplexity saliency (Jaccard 0.04–0.14), and concentrate in attention `v_proj` / `o_proj`.
 * **Robustness map:** pre-registered, ≥3-seed tests on Llama-3.1-8B, Mistral-7B-v0.3 and Gemma-7B-IT across W4A16 / W4A8 / NVFP4 show English refusal survives 4-bit quantisation; residual damage is cross-lingual (MultiJail-KO).
@@ -116,9 +113,7 @@ flowchart LR
 
 **Constrained Trajectory Optimization:** Formulating recursive self-improvement as a constrained optimization problem where an update $`\Delta \theta_t`$ is accepted if and only if:
 
-$$
-\mathcal{U}(\theta_t + \Delta \theta_t) > \mathcal{U}(\theta_t) \quad \text{subject to} \quad \mathcal{C}_{\text{corr}}(\theta_t + \Delta \theta_t) \ge \tau_{\text{corr}} \land D_{\text{KL}}\left(\pi_{\theta_{t+1}} \Vert \pi_{\text{safe}}\right) \le \epsilon
-$$
+$`\displaystyle \mathcal{U}(\theta_t + \Delta \theta_t) > \mathcal{U}(\theta_t) \quad \text{subject to} \quad \mathcal{C}_{\text{corr}}(\theta_t + \Delta \theta_t) \ge \tau_{\text{corr}} \land D_{\text{KL}}\left(\pi_{\theta_{t+1}} \Vert \pi_{\text{safe}}\right) \le \epsilon`$
 
 * **Early Warning Indicators:** Testing whether static behavioral safety scores miss earlier structural deterioration in **corrective leverage** (the agent's responsiveness to human override and policy correction).
 
