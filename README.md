@@ -55,19 +55,14 @@ Adversarial web and network threat detection violates standard IID assumptions a
 
 ```mermaid
 flowchart LR
-    In["Multi-Modal Telemetry<br/>(DOM + URL + Headers + Runtime)"] --> Backbone["Specialised Feature<br/>Extraction Backbone"]
-    Backbone --> Seq["Sequential Temporal<br/>Processing Engine"]
-    Backbone --> Latent["Joint-Embedding<br/>Latent Space"]
-    Seq --> Decision["Real-Time Decision<br/>& Scoring Module"]
-    Latent --> Decision
-    Decision --> Policy["Adaptive Policy<br/>Optimization"]
-    Policy --> Out["Zero-Day Threat Containment<br/>(<1ms Latency | 96% OOD Acc)"]
+    In["Multi-Modal<br/>Web Telemetry"] --> Model["Custom-Pretrained<br/>Detection Model"]
+    Model --> Decision["Real-Time Decision<br/>& Scoring"]
+    Decision --> Out["Zero-Day Threat Containment<br/>(sub-1 ms | 96% OOD Acc)"]
 ```
 
-* **Multi-Modal Pre-Training:** Pre-trained from scratch over a metric-balanced, heterogeneous corpus exceeding **2,000,000 samples** (structural DOM trees, URLs, HTTP headers, and live runtime execution traces) to learn invariant threat manifolds.
-* **System-1 Joint-Embedding & Dilated TCNs:** Coupled the foundation backbone with dilated causal **Temporal Convolutional Networks (TCNs)** and a fast **System-1 joint-embedding decision head** to capture long-range sequential dependencies in a single forward pass.
-* **RLCD Post-Training:** Formulated a **Reinforcement Learning from Contrastive/Contextual Decisions (RLCD)** objective to optimize the decision boundary under asymmetric false-positive/false-negative operational costs.
-* **Kit-Disjoint OOD Partitioning:** Proved that standard IID random train/test splits leak shared phishing-kit templates across partitions; formulated a **kit-family-disjoint splitting protocol** to evaluate true out-of-distribution (OOD) generalisation.
+* **Custom Pre-Training:** Designed and pre-trained a domain-specific foundation model from scratch on a large, metric-balanced multi-modal corpus of adversarial web behaviour.
+* **Low-Latency Decision Model:** Built the architecture and a cost-sensitive post-training stage so threats are scored in a single forward pass, under asymmetric false-positive/false-negative operational costs.
+* **Kit-Disjoint OOD Partitioning:** Showed that standard IID random train/test splits leak shared phishing-kit templates across partitions, and introduced a **kit-family-disjoint splitting protocol** to evaluate true out-of-distribution (OOD) generalisation.
 
 </details>
 
@@ -137,7 +132,7 @@ $`\displaystyle \mathcal{U}(\theta_t + \Delta \theta_t) > \mathcal{U}(\theta_t) 
 | :--- | :--- | :--- | :--- |
 | **IEEE Access** *(Manuscript)* | **First Author** *(with Dr. M. Ghahremani & Prof. M. Bader-El-Den)* | COMPASS: refusal-direction-guided mixed-precision allocator & pre-registered 4-bit PTQ safety characterisation | **Under Review** |
 | **XTRUST-6G** | **Lead ML RA** *(€8M Horizon Europe / SNS JU)* | Deep zero-day sequence anomaly models, non-IID Federated Learning & encrypted-flow ML | **Active (2026–Present)** |
-| **Voxlith (Locknest)** | **Co-Founder & ML Lead** *(UKRI CyberASAP Spin-Out)* | Custom Cyber Foundation Model (2M+ corpus), System-1 TCN/RLCD head & kit-disjoint OOD splits | **[voxlith.com](https://voxlith.com)** *(2 Live Pilots)* |
+| **Voxlith (Locknest)** | **Co-Founder & ML Lead** *(UKRI CyberASAP Spin-Out)* | Custom-pretrained multi-modal threat detection model & kit-disjoint OOD evaluation | **[voxlith.com](https://voxlith.com)** *(2 Live Pilots)* |
 | **PromptGuard** | **Lead ML RA** *(UKRI CyberASAP)* | Quantised edge SLMs for semantic DLP, synthetic benchmark construction & evaluation harness | **[Project Site](https://promptguard-cyberasap.github.io)** |
 | **Honours Thesis** | **Sole Investigator** *(University of Portsmouth)* | Corrigibility retention & provenance-constrained update gating in recursive self-improving agents | **In Progress (2026–2027)** |
 
